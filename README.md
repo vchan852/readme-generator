@@ -32,3 +32,6 @@ This is the license used for this project <br> https://choosealicense.com/licens
 ## Questions
 
 If you have any questions about this application, you can find me on github [vchan852](https://github.com/vchan852) or you can email me at vchan852@gmail.com
+
+## Video Link
+https://drive.google.com/file/d/1rgI77tVuzCUM7SDzSLHueX3tlTLyDjSX/view?usp=sharing
