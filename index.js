@@ -1,14 +1,14 @@
 // TODO: Include packages needed for this application
-const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("utils/generateMarkdown.js");
+const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: "input",
         name: "title",
-        message: "What is the title of this project?",
+        message: "What is your project name?",
         validation: titleInput => titleInput ? true : false
     },
     {
@@ -20,36 +20,30 @@ const questions = [
     {
         type: "input",
         name: "installationInstructions",
-        message: "How do you install this application?",
+        message: "How do you install it?",
         validation: descriptionInput => descriptionInput ? true : false
-    },
-    {
-        type: "input",
-        name: "usageInformation",
-        message: "How do you use your application?",
     },
     {
         type: "input",
         name: "contributionGuidelines",
         message: "How can someone contribute to this application?",
     },
-    
     {
         type: "input",
         name: "testInstructions",
-        message: "How can someone test your application?",
+        message: "How can someone test this application?",
     },
     {
         type: "confirm",
         name: "isLicense",
-        message: "Is there a license you would like to add?",
+        message: "Would you like to add a license?",
         default: true,
     },
     {
         type: "rawlist",
         name: "licenseType",
-        message: "What is your project's description?",
-        choices: ["mit", "apache-2.0", "gpl-3.0", "mpl-2.0"],
+        message: "What is this project's description?",
+        choices: ["mit"],
         when: ({ isLicense }) => {
             if (isLicense) {
                 return true;
@@ -66,10 +60,9 @@ const questions = [
     {
         type: "input",
         name: "email",
-        message: "What is your e-mail address?",
+        message: "What is your email address?",
     },
 ];
-
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -77,7 +70,8 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-         console.log("Success!");
+
+        console.log("Success! README is generated!");
     });
 }
 
@@ -85,7 +79,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then((answers) => {
         console.log(answers);
-
+        // Use user feedback for... whatever!!
         const returnedString = generateMarkdown(answers);
         writeToFile("README.md", returnedString);
     });
