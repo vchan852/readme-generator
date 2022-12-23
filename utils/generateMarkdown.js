@@ -39,7 +39,7 @@ ${renderLicenseBadge(data.licenseType)}
 * [Description](#description)
 * [Installation Instructions](#installation-instructions)
 * [How To Contribute](#how-to-contribute)
-* [Test Instructions](#to-test)
+* [Test Instructions](#test-instructions)
 * [License](#license)
 
 
@@ -65,10 +65,8 @@ ${renderLicenseSection(data.licenseType)}
 
 ## Questions
 
-If you have any questions about this application, you can find me on github [${data.githubUserName}](https://github.com/${data.githubUserName}) or you can email me at ${
-        data.email
-    }
-`;
+If you have any questions about this application, you can find me on github [${data.githubUserName}](https://github.com/${data.githubUserName}) or you can email me at ${data.email
+}`;
 }
 
 module.exports = generateMarkdown;
